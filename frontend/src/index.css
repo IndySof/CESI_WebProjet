@@ -10,21 +10,8 @@ code {
     monospace;
 }
 
-/* footer {
-  background-color: #3f51b5;
-  color: #ffffff;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0.5rem;
+.fa{
+  width: 5%;
+  height: auto;
+  font-size: 25px;
 }
-.row {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  align-items: center;
-  color: white;
-}
-.row.center {
-  justify-content: center;
-} */

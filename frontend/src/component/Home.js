@@ -126,7 +126,8 @@ const JobTile = (props) => {
             ))}
           </Grid>
         </Grid>
-        <Grid item xs={3}>
+        {userType() === "applicant" ? (
+          <Grid item xs={3}>
           <Button
             variant="contained"
             color="primary"
@@ -138,11 +139,16 @@ const JobTile = (props) => {
             onClick={() => {
               setOpen(true);
             }}
-            disabled={userType() === "recruiter"}
           >
             Postuler
           </Button>
         </Grid>
+        ) :
+        (
+        <Grid/>
+        )
+      }
+        
       </Grid>
       <Modal open={open} onClose={handleClose} className={classes.popupDialog}>
         <Paper

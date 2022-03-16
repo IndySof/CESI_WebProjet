@@ -1,3 +1,4 @@
+import { CellWifi, CenterFocusStrong, CenterFocusStrongOutlined, CenterFocusWeak } from "@material-ui/icons";
 import React from "react";
 import {
   Box,
@@ -16,45 +17,26 @@ const Footer = () => {
           <Column>
             <Heading>A propos</Heading>
             <FooterLink href="/terms">Mentions légales</FooterLink>
-            <FooterLink href="#">Vision</FooterLink>
-            <FooterLink href="#">Testimonials</FooterLink>
+            <FooterLink href="/plan">Plan du site</FooterLink>
           </Column>
           <Column>
             <Heading>Contact</Heading>
             <FooterLink href="https://ecole-ingenieurs.cesi.fr/">CESI</FooterLink>
-            <FooterLink href="#">Ahemdabad</FooterLink>
-            <FooterLink href="#">Indore</FooterLink>
-            <FooterLink href="#">Mumbai</FooterLink>
+            <FooterLink href="mailto:maxime.goutelard@viacesi.fr">maxime.goutelard@viacesi.fr</FooterLink>
           </Column>
           <Column>
             <Heading>Réseaux</Heading>
-            <FooterLink href="#">
-              <i className="fab fa-facebook-f">
-                <span style={{ marginLeft: "10px" }}>
-                  Facebook
-                </span>
-              </i>
+            <FooterLink href="https://www.facebook.com/CESIingenieurs/">
+              <i className="fa fa-facebook"/>
             </FooterLink>
-            <FooterLink href="#">
-              <i className="fab fa-instagram">
-                <span style={{ marginLeft: "10px" }}>
-                  Instagram
-                </span>
-              </i>
+            <FooterLink href="https://www.instagram.com/campus_cesi">
+              <i className="fa fa-instagram"/>
             </FooterLink>
-            <FooterLink href="#">
-              <i className="fab fa-twitter">
-                <span style={{ marginLeft: "10px" }}>
-                  Twitter
-                </span>
-              </i>
+            <FooterLink href="https://www.linkedin.com/school/cesiecoledingenieurs">
+              <i className="fa fa-linkedin"/>
             </FooterLink>
-            <FooterLink href="#">
-              <i className="fab fa-youtube">
-                <span style={{ marginLeft: "10px" }}>
-                  YouTube
-                </span>
-              </i>
+            <FooterLink href="https://www.youtube.com/watch?v=_qPVx1qSIDM">
+              <i className="fa fa-youtube"/>
             </FooterLink>
           </Column>
         </Row>

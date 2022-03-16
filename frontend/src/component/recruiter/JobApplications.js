@@ -425,6 +425,12 @@ const ApplicationTile = (props) => {
   const buttonSet = {
     applied: (
       <>
+      <Grid item container direction="column" xs={3}
+        style={{
+          display: "space-between",
+          rowGap: "20%",
+          maxWidth: "100%"
+        }}>
         <Grid item xs>
           <Button
             className={classes.statusBlock}
@@ -449,20 +455,27 @@ const ApplicationTile = (props) => {
             Reject
           </Button>
         </Grid>
+        </Grid>
       </>
     ),
     shortlisted: (
       <>
+      <Grid item container direction="column" xs={3}
+        style={{
+          display: "space-between",
+          rowGap: "20%",
+          maxWidth: "100%"
+        }}>
         <Grid item xs>
           <Button
             className={classes.statusBlock}
             style={{
               background: colorSet["accepted"],
-              color: "#ffffff",
+              color: "#ffffff"
             }}
             onClick={() => updateStatus("accepted")}
           >
-            Accepté
+            Accepter
           </Button>
         </Grid>
         <Grid item xs>
@@ -474,8 +487,9 @@ const ApplicationTile = (props) => {
             }}
             onClick={() => updateStatus("rejected")}
           >
-            Refusé
+            Refuser
           </Button>
+        </Grid>
         </Grid>
       </>
     ),
@@ -500,7 +514,11 @@ const ApplicationTile = (props) => {
     ),
     accepted: (
       <>
-        <Grid item xs>
+        <Grid item xs style={{
+          display: "space-between",
+          height: "50%",
+          marginTop: "10%"
+        }}>
           <Paper
             className={classes.statusBlock}
             style={{
@@ -530,7 +548,11 @@ const ApplicationTile = (props) => {
     ),
     finished: (
       <>
-        <Grid item xs >
+        <Grid item xs style={{
+          display: "space-between",
+          height: "50%",
+          marginTop: "10%"
+        }}>
           <Paper
             className={classes.statusBlock}
             style={{

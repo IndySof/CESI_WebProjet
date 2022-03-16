@@ -235,15 +235,15 @@ const Profile = (props) => {
             <Button
               variant="contained"
               color="primary"
-              style={{ padding: "10px 50px", marginTop: "30px" }}
+              style={{ padding: "10px 50px", marginTop: "30px", width: "26%"}}
               onClick={() => handleUpdate()}
             >
-              Modifier
+              appliquer
             </Button>
             <Button
               variant="contained"
               color="secondary"
-              style={{ padding: "10px 50px", marginTop: "30px" }}
+              style={{ padding: "10px 50px", marginTop: "30px", width: "26%" }}
               onClick={() => {delAcc();
                 handleClick("/logout");
               } 
