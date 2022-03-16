@@ -11,6 +11,7 @@ import {
 import axios from "axios";
 import PhoneInput from "react-phone-input-2";
 import "react-phone-input-2/lib/material.css";
+import { useHistory } from "react-router-dom";
 
 import { SetPopupContext } from "../../App";
 
@@ -35,6 +36,8 @@ const Profile = (props) => {
   const classes = useStyles();
   const setPopup = useContext(SetPopupContext);
   const [open, setOpen] = useState(false);
+  let history = useHistory();
+
 
 
   const [profileDetails, setProfileDetails] = useState({
@@ -83,6 +86,15 @@ const Profile = (props) => {
         });
       });
   };
+
+
+  const handleClick = (location) => {
+    console.log(location);
+    history.push(location);
+  };
+
+
+
   const delAcc = () => {
     console.log(profileDetails.userId);
     axios
@@ -232,7 +244,10 @@ const Profile = (props) => {
               variant="contained"
               color="secondary"
               style={{ padding: "10px 50px", marginTop: "30px" }}
-              onClick={() => delAcc()}
+              onClick={() => {delAcc();
+                handleClick("/logout");
+              } 
+              }
             >
               Supprimer
             </Button>
