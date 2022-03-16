@@ -283,9 +283,11 @@ router.put("/jobs/:id", jwtAuth, (req, res) => {
     });
 });
 
+
+
 router.delete("/account/:id", jwtAuth, (req, res) => {
   const user = req.user;
-  if (user.type != "applicant") {
+  if (user.type != "applicant" && user.type != "recruiter") {
     res.status(401).json({
       message: "You don't have permissions to delete the account",
     });

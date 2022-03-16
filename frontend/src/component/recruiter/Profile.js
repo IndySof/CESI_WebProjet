@@ -29,17 +29,27 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
+
+
 const Profile = (props) => {
   const classes = useStyles();
   const setPopup = useContext(SetPopupContext);
+  const [open, setOpen] = useState(false);
+
 
   const [profileDetails, setProfileDetails] = useState({
     name: "",
+    userId:"",
     bio: "",
     contactNumber: "",
   });
 
   const [phone, setPhone] = useState("");
+
+
+  const handleClose = () => {
+    setOpen(false);
+  };
 
   const handleInput = (key, value) => {
     setProfileDetails({
@@ -73,7 +83,33 @@ const Profile = (props) => {
         });
       });
   };
-
+  const delAcc = () => {
+    console.log(profileDetails.userId);
+    axios
+      .delete(`${apiList.account}/${profileDetails.userId}`, {
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem("token")}`,
+        },
+      })
+      .then((response) => {
+        setPopup({
+          open: true,
+          severity: "success",
+          message: response.data.message,
+        });
+        getData();
+        handleClose();
+      })
+      .catch((err) => {
+        console.log(err.response);
+        setPopup({
+          open: true,
+          severity: "error",
+          message: err.response.data.message,
+        });
+        handleClose();
+      });
+  };
   const handleUpdate = () => {
     let updatedDetails = {
       ...profileDetails,
@@ -190,7 +226,15 @@ const Profile = (props) => {
               style={{ padding: "10px 50px", marginTop: "30px" }}
               onClick={() => handleUpdate()}
             >
-              modifier
+              Modifier
+            </Button>
+            <Button
+              variant="contained"
+              color="secondary"
+              style={{ padding: "10px 50px", marginTop: "30px" }}
+              onClick={() => delAcc()}
+            >
+              Supprimer
             </Button>
           </Paper>
         </Grid>
