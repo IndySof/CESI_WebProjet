@@ -98,8 +98,8 @@ const MultifieldInput = (props) => {
               },
             ])
           }
-          className={classes.inputBox}
-          style={{ backgroundColor: "red" }}
+          
+          style={{ padding: "10px 50px", marginTop: "5%", width: "100%", backgroundColor: "green" }}
         >
           Ajouter un établissement
         </Button>

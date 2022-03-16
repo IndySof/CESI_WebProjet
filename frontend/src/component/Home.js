@@ -310,7 +310,7 @@ const FilterPopup = (props) => {
             <Grid item xs={9}>
               <TextField
                 select
-                label="Duration"
+                label="Durée"
                 variant="outlined"
                 fullWidth
                 value={searchOptions.duration}
@@ -321,7 +321,7 @@ const FilterPopup = (props) => {
                   })
                 }
               >
-                <MenuItem value="0">All</MenuItem>
+                <MenuItem value="0">Tout</MenuItem>
                 <MenuItem value="1">1</MenuItem>
                 <MenuItem value="2">2</MenuItem>
                 <MenuItem value="3">3</MenuItem>

@@ -15,3 +15,9 @@ code {
   height: auto;
   font-size: 25px;
 }
+
+@media only screen and (max-width: 900px) {
+  html {
+    font-size: 14px;
+  }
+}
