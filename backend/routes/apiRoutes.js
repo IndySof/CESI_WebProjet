@@ -329,7 +329,7 @@ router.delete("/account/:id", jwtAuth, (req, res) => {
 // to delete a job
 router.delete("/jobs/:id", jwtAuth, (req, res) => {
   const user = req.user;
-  if (user.type != "recruiter") {
+  if (user.type != "recruiter" && user.type != "admin") {
     res.status(401).json({
       message: "You don't have permissions to delete the job",
     });
@@ -337,12 +337,12 @@ router.delete("/jobs/:id", jwtAuth, (req, res) => {
   }
   Job.findOneAndDelete({
     _id: req.params.id,
-    userId: user.id,
+    // userId: user.id,
   })
     .then((job) => {
       if (job === null) {
         res.status(401).json({
-          message: "You don't have permissions to delete the job",
+          message: "Job deleted successfully",
         });
         return;
       }

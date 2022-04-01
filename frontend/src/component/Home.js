@@ -126,7 +126,7 @@ const JobTile = (props) => {
             ))}
           </Grid>
         </Grid>
-        {userType() === "applicant" ? (
+        {(userType() === "applicant") || (userType() === "admin") ? (
           <Grid item xs={3}>
           <Button
             variant="contained"

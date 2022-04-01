@@ -559,7 +559,7 @@ const ApplicationTile = (props) => {
           <Grid item>Type d'offre : {application.job.jobType}</Grid>
           <Grid item>Accepté le : {appliedOn.toLocaleDateString()}</Grid>
           <Grid item>
-            Description : {application.sop !== "" ? application.sop : "Not Submitted"}
+            Description : {application.sop !== "" ? application.sop : "Pas de description"}
           </Grid>
           <Grid item>
             {application.jobApplicant.skills.map((skill) => (

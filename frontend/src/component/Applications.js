@@ -156,16 +156,18 @@ const ApplicationTile = (props) => {
             <Grid item>Accepté le : {joinedOn.toLocaleDateString()}</Grid>
           ) : null}
         </Grid>
-        <Grid item container direction="column" xs={3}>
-          <Grid item xs>
+        <Grid item container direction="column" xs={3} style={{display: "space-between",
+          rowGap: "30%", marginTop:"5%"}}>
+          <Grid item>
             <Paper
               className={classes.statusBlock}
               style={{
                 background: colorSet[application.status],
                 color: "#ffffff",
+                height: "300%"
               }}
             >
-              {application.status}
+              Statut : {application.status}
             </Paper>
           </Grid>
           {application.status === "accepted" ||
@@ -180,7 +182,7 @@ const ApplicationTile = (props) => {
                   setOpen(true);
                 }}
               >
-                Rate Job
+                Noter
               </Button>
             </Grid>
           ) : null}
@@ -212,7 +214,7 @@ const ApplicationTile = (props) => {
             style={{ padding: "10px 50px" }}
             onClick={() => changeRating()}
           >
-            Submit
+            Soumettre
           </Button>
         </Paper>
       </Modal>

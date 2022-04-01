@@ -26,7 +26,7 @@ import ArrowUpwardIcon from "@material-ui/icons/ArrowUpward";
 import ArrowDownwardIcon from "@material-ui/icons/ArrowDownward";
 
 import { SetPopupContext } from "../../App";
-
+import isAuth, { userType } from "../../lib/isAuth";
 import apiList from "../../lib/apiList";
 
 const useStyles = makeStyles((theme) => ({
@@ -154,6 +154,7 @@ const JobTile = (props) => {
           <Grid item>
             <Typography variant="h5">{job.title}</Typography>
           </Grid>
+          <Grid item>{job.recruiter.name}</Grid>
           <Grid item>
             <Rating value={job.rating !== -1 ? job.rating : null} readOnly />
           </Grid>
@@ -180,6 +181,9 @@ const JobTile = (props) => {
           display: "space-between",
           rowGap: "20%"
         }}>
+          
+          {isAuth() && userType() === "recruiter" ? (
+          <>
           <Grid item xs>
             <Button
               variant="contained"
@@ -191,20 +195,22 @@ const JobTile = (props) => {
             </Button>
           </Grid>
           <Grid item xs>
-            <Button
-              variant="contained"
-              className={classes.statusBlock}
-              onClick={() => {
-                setOpenUpdate(true);
-              }}
-              style={{
-                background: "#FC7A1E",
-                color: "#fff",
-              }}
-            >
-              Modifier 
-            </Button>
-          </Grid>
+          <Button
+            variant="contained"
+            className={classes.statusBlock}
+            onClick={() => {
+              setOpenUpdate(true);
+            }}
+            style={{
+              background: "#FC7A1E",
+              color: "#fff",
+            }}
+          >
+            Modifier 
+          </Button>
+        </Grid>
+        </>
+          ) : (<div></div>)}
           <Grid item xs>
             <Button
               variant="contained"

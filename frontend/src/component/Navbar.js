@@ -44,12 +44,35 @@ const Navbar = (props) => {
                 CesiJobs
           </Button>
         </Typography>
+
+
+        
+        
         {isAuth() ? (
+          userType() === "admin" ? (
+              <>
+                  <Button style={{
+                    backgroundColor: "red",
+                    margin: "0 auto"
+                  }}>
+                  connecté en tant qu'administrateur
+                 </Button>
+                  <Button color="inherit" onClick={() => handleClick("/myjobs")}>
+                    offres
+                  </Button>
+                  <Button color="inherit" onClick={() => handleClick("/users")}>
+                    utilisateurs
+                  </Button>
+                  <Button color="inherit" onClick={() => handleClick("/profile")}>
+                    Profil
+                  </Button>
+                  <Button color="inherit" onClick={() => handleClick("/logout")}>
+                    Se déconnecter
+                  </Button>
+                </>
+            ) :
           userType() === "recruiter" ? (
             <>
-              {/* <Button color="inherit" onClick={() => handleClick("/home")}>
-                Home
-              </Button> */}
               <Button color="inherit" onClick={() => handleClick("/addjob")}>
                 Ajouter une offre
               </Button>
@@ -68,9 +91,6 @@ const Navbar = (props) => {
             </>
           ) : (
             <>
-              {/* <Button color="inherit" onClick={() => handleClick("/home")}>
-                Home
-              </Button> */}
               <Button
                 color="inherit"
                 onClick={() => handleClick("/applications")}
@@ -95,6 +115,7 @@ const Navbar = (props) => {
             </Button>
           </>
         )}
+        
       </Toolbar>
     </AppBar>
   );
